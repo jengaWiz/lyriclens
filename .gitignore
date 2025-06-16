@@ -1,0 +1,14 @@
+# Node modules (for React)
+client/node_modules
+
+# Build files
+dist/
+
+# System/IDE stuff
+.DS_Store
+.vscode
+.idea
+
+# Java Spring Boot build output
+backend/target
+*.log
