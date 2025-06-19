@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [lyrics, setLyrics] = useState('');
+  const [emotion, setEmotion] = useState('');
+
+  const handleAnalyze = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/lyrics/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ lyrics }),
+      });
+  
+      const data = await response.json();
+      setEmotion(data.emotion);  // Assuming backend returns { emotion: "happy" }
+    } catch (error) {
+      console.error("Error analyzing lyrics:", error);
+      setEmotion("Error analyzing emotion");
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>LyricLens</h1>
+      <p>Paste your lyrics below to analyze mood:</p>
+      <textarea
+        rows="6"
+        cols="50"
+        placeholder="Type lyrics here..."
+        value={lyrics}
+        onChange={(e) => setLyrics(e.target.value)}
+      />
+      <br />
+      <button onClick={handleAnalyze}>Analyze</button>
+      {emotion && <p>Detected Emotion: <strong>{emotion}</strong></p>}
+    </div>
+  );
 }
 
-export default App
+
+
+export default App;
