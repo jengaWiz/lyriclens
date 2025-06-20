@@ -1,11 +1,13 @@
 package com.lyriclens.backend.controller;
 
+import com.lyriclens.backend.model.LyricsHistory;
 import com.lyriclens.backend.model.LyricsRequest;
 import com.lyriclens.backend.service.EmotionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "*")
@@ -32,6 +34,12 @@ public class LyricsController {
     @GetMapping("/ping")
     public String ping() {
         return "pong";
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<List<LyricsHistory>> getHistory() {
+        List<LyricsHistory> historyList = emotionService.getLyricsHistory();
+        return ResponseEntity.ok(historyList);
     }
 
 }
