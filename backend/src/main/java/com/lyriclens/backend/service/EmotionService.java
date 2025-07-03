@@ -18,28 +18,23 @@ public class EmotionService {
 
     public String analyzeEmotion(String lyrics) {
         try{
-            // 🔁 Dummy emotion logic
-            String emotion = "neutral";
+            // Map keywords to PRD subcategories
             String lowerLyrics = lyrics.toLowerCase();
-
-            if (lowerLyrics.contains("happy") || lowerLyrics.contains("love")) {
-                emotion = "happy";
-            } else if (lowerLyrics.contains("sad") || lowerLyrics.contains("cry")) {
-                emotion = "sad";
-            } else if (lowerLyrics.contains("angry") || lowerLyrics.contains("hate")) {
-                emotion = "angry";
+            if (lowerLyrics.contains("sad") || lowerLyrics.contains("cry") || lowerLyrics.contains("breakup") || lowerLyrics.contains("lost love")) {
+                return "Heartbreak";
+            } else if (lowerLyrics.contains("memory") || lowerLyrics.contains("remember") || lowerLyrics.contains("past") || lowerLyrics.contains("old times")) {
+                return "Nostalgia";
+            } else if (lowerLyrics.contains("strong") || lowerLyrics.contains("rise") || lowerLyrics.contains("power") || lowerLyrics.contains("fight") || lowerLyrics.contains("win") || lowerLyrics.contains("empower")) {
+                return "Empowerment";
+            } else if (lowerLyrics.contains("betray") || lowerLyrics.contains("deceive") || lowerLyrics.contains("lie") || lowerLyrics.contains("cheat")) {
+                return "Betrayal";
+            } else if (lowerLyrics.contains("party") || lowerLyrics.contains("celebrate") || lowerLyrics.contains("joy") || lowerLyrics.contains("dance") || lowerLyrics.contains("happy")) {
+                return "Celebration";
             }
-
-            LyricsHistory history = new LyricsHistory();
-            history.setLyrics(lyrics);
-            history.setEmotion(emotion);
-            history.setTimestamp(LocalDateTime.now());
-            historyRepository.save(history);
-
-            return emotion;
-
+            // Default fallback
+            return "Unknown";
         } catch (Exception e) {
-            return "Error analyzing emotion";
+            return "Unknown";
         }
     }
 

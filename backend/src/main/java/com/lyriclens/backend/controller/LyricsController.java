@@ -22,13 +22,26 @@ public class LyricsController {
     }
 
     @PostMapping("/analyze")
-    public ResponseEntity<Map<String, String>> analyzeLyrics(@RequestBody LyricsRequest request) {
-        String emotion = emotionService.analyzeEmotion(request.getLyrics());
+    public ResponseEntity<Map<String, String>> analyzeLyrics(@RequestBody Map<String, Object> payload) {
+        String lyrics = (String) payload.get("lyrics");
+        String song = (String) payload.get("song");
+        String artist = (String) payload.get("artist");
+
+        String emotionCategory = emotionService.analyzeEmotion(lyrics);
+        String explanation = "The lyrics express " + emotionCategory + " emotion.";
 
         Map<String, String> response = new HashMap<>();
-        response.put("emotion", emotion);
+        response.put("song", song != null ? song : "");
+        response.put("artist", artist != null ? artist : "");
+        response.put("emotionCategory", capitalize(emotionCategory));
+        response.put("explanation", explanation);
 
         return ResponseEntity.ok(response);
+    }
+
+    private String capitalize(String str) {
+        if (str == null || str.isEmpty()) return "";
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
     @GetMapping("/ping")
