@@ -11,4 +11,12 @@ export async function analyzeLyrics({ lyrics, song, artist }) {
     throw new Error("Failed to analyze lyrics");
   }
   return await response.json();
+}
+
+export async function getSpotifyUserAndPlaylists(userId) {
+  const response = await fetch(`http://localhost:8080/auth/spotify/api/spotify/user/${userId}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch Spotify user data");
+  }
+  return await response.json();
 } 
