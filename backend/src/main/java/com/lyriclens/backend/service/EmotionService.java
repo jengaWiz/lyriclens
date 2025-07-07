@@ -6,36 +6,29 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import reactor.core.publisher.Mono;
+import com.lyriclens.backend.service.GeminiService;
 
 @Service
 public class EmotionService {
 
     private final LyricsHistoryRepository historyRepository;
+    private final GeminiService geminiService;
 
-    public EmotionService(LyricsHistoryRepository historyRepository) {
+    public EmotionService(LyricsHistoryRepository historyRepository, GeminiService geminiService) {
         this.historyRepository = historyRepository;
+        this.geminiService = geminiService;
     }
 
-    public String analyzeEmotion(String lyrics) {
-        try{
-            // Map keywords to PRD subcategories
-            String lowerLyrics = lyrics.toLowerCase();
-            if (lowerLyrics.contains("sad") || lowerLyrics.contains("cry") || lowerLyrics.contains("breakup") || lowerLyrics.contains("lost love")) {
-                return "Heartbreak";
-            } else if (lowerLyrics.contains("memory") || lowerLyrics.contains("remember") || lowerLyrics.contains("past") || lowerLyrics.contains("old times")) {
-                return "Nostalgia";
-            } else if (lowerLyrics.contains("strong") || lowerLyrics.contains("rise") || lowerLyrics.contains("power") || lowerLyrics.contains("fight") || lowerLyrics.contains("win") || lowerLyrics.contains("empower")) {
-                return "Empowerment";
-            } else if (lowerLyrics.contains("betray") || lowerLyrics.contains("deceive") || lowerLyrics.contains("lie") || lowerLyrics.contains("cheat")) {
-                return "Betrayal";
-            } else if (lowerLyrics.contains("party") || lowerLyrics.contains("celebrate") || lowerLyrics.contains("joy") || lowerLyrics.contains("dance") || lowerLyrics.contains("happy")) {
-                return "Celebration";
-            }
-            // Default fallback
-            return "Unknown";
-        } catch (Exception e) {
-            return "Unknown";
-        }
+    public Mono<String> analyzeEmotion(String lyrics) {
+        return geminiService.classifyEmotion(lyrics)
+            .map(response -> {
+                // Extract the emotion from Gemini's JSON response
+                // (Assume response is a JSON string with the emotion in a known field, or just the emotion as plain text)
+                // You may need to parse the response if Gemini returns more than just the emotion
+                // For now, return the raw response
+                return response.replaceAll("[\"{}]", "").trim();
+            });
     }
 
     public List<LyricsHistory> getLyricsHistory() {

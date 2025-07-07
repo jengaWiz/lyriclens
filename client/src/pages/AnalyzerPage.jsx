@@ -25,11 +25,16 @@ const AnalyzerPage = () => {
 
   return (
     <div className="flex flex-col items-center pt-28 min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="w-full max-w-xl p-6 bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-lg">
+      <div className="w-full max-w-xl p-10 bg-white rounded-3xl shadow-2xl flex flex-col items-center border border-gray-200">
+        <h2 className="text-3xl font-extrabold mb-6 text-purple-700 tracking-tight">Lyric Emotion Analyzer</h2>
         <LyricsForm onAnalyze={handleAnalyze} loading={loading} />
         {loading && <Loader />}
-        {error && <div className="text-red-600 mt-4">{error}</div>}
-        {result && <EmotionCard result={result} />}
+        {error && <div className="text-red-600 mt-4 text-lg font-semibold">{error}</div>}
+        {result && (
+          <div className="w-full mt-8">
+            <EmotionCard result={result} />
+          </div>
+        )}
       </div>
     </div>
   );

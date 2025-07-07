@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import reactor.core.publisher.Mono;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -22,21 +23,20 @@ public class LyricsController {
     }
 
     @PostMapping("/analyze")
-    public ResponseEntity<Map<String, String>> analyzeLyrics(@RequestBody Map<String, Object> payload) {
+    public Mono<ResponseEntity<Map<String, String>>> analyzeLyrics(@RequestBody Map<String, Object> payload) {
         String lyrics = (String) payload.get("lyrics");
         String song = (String) payload.get("song");
         String artist = (String) payload.get("artist");
-
-        String emotionCategory = emotionService.analyzeEmotion(lyrics);
-        String explanation = "The lyrics express " + emotionCategory + " emotion.";
-
-        Map<String, String> response = new HashMap<>();
-        response.put("song", song != null ? song : "");
-        response.put("artist", artist != null ? artist : "");
-        response.put("emotionCategory", capitalize(emotionCategory));
-        response.put("explanation", explanation);
-
-        return ResponseEntity.ok(response);
+        return emotionService.analyzeEmotion(lyrics)
+            .map(emotionCategory -> {
+                String explanation = "The lyrics express " + emotionCategory + " emotion.";
+                Map<String, String> response = new HashMap<>();
+                response.put("song", song != null ? song : "");
+                response.put("artist", artist != null ? artist : "");
+                response.put("emotionCategory", capitalize(emotionCategory));
+                response.put("explanation", explanation);
+                return ResponseEntity.ok(response);
+            });
     }
 
     private String capitalize(String str) {
