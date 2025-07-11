@@ -1,9 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-
   const handleSpotifyLogin = () => {
     window.location.href = "http://127.0.0.1:8080/auth/spotify/login";
   };
@@ -23,21 +20,6 @@ const HomePage = () => {
         <p className="text-lg sm:text-xl text-gray-200 mb-10 text-center max-w-2xl">
           Discover the emotional depth behind your favorite songs with AI-powered lyric analysis
         </p>
-        <div className="flex w-full max-w-2xl bg-[#23213a] rounded-2xl shadow-xl px-4 py-3 items-center gap-2 mb-8 ring-1 ring-pink-400/30">
-          <span className="text-gray-400 text-xl mr-2">🔍</span>
-          <input
-            type="text"
-            className="flex-1 bg-transparent outline-none text-white placeholder-gray-400 text-lg px-2"
-            placeholder="Paste lyrics or enter song title..."
-            disabled
-          />
-          <button
-            className="ml-2 px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-xl shadow transition text-lg"
-            onClick={() => navigate("/analyze")}
-          >
-            Analyze
-          </button>
-        </div>
         <button
           className="mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg transition text-lg flex items-center gap-2"
           onClick={handleSpotifyLogin}
