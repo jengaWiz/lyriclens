@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+httpx
+spotipy
+beautifulsoup4
+sqlalchemy
+python-dotenv
+pydantic
+pydantic-settings
+fpdf
+textblob

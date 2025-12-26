@@ -1,0 +1,57 @@
+[Router] Received analysis request for playlists: ['1enmpvrQQoD59GzDd7BpEQ']
+[Router] Processing playlist: 1enmpvrQQoD59GzDd7BpEQ
+[Router] Fetched 8 tracks for playlist 1enmpvrQQoD59GzDd7BpEQ
+[Router] Found 8 valid track IDs
+[Router] Error fetching audio features for batch 0: http status: 403, code: -1 - https://api.spotify.com/v1/audio-features/?ids=3dhjNA0jGA8vHBQ1VdD6vV,4KJouF0PwyYsq2Jxyj5j6B,4rPJSqrov3zqGwXlemLBMw,1r6qzxz77Tvbrvqd1Q1MIN,0z8wIFS6LUp2iz6kajcID7,1LbBOhicFmu7ktJqIHCELt,5sAqcel4LTCi5G0eBvmp7D,0zMs60Lo1dUedfg9xBNRIa:
+ None, reason: None
+[Router] Total audio features fetched: 0
+[Router] Error analyzing track 3dhjNA0jGA8vHBQ1VdD6vV: No module named 'textblob'
+[Router] Error analyzing track 4KJouF0PwyYsq2Jxyj5j6B: No module named 'textblob'
+[Router] Error analyzing track 4rPJSqrov3zqGwXlemLBMw: No module named 'textblob'
+[Router] Error analyzing track 1r6qzxz77Tvbrvqd1Q1MIN: No module named 'textblob'
+[Router] Error analyzing track 0z8wIFS6LUp2iz6kajcID7: No module named 'textblob'
+[Router] Error analyzing track 1LbBOhicFmu7ktJqIHCELt: No module named 'textblob'
+[Router] Error analyzing track 5sAqcel4LTCi5G0eBvmp7D: No module named 'textblob'
+[Router] Error analyzing track 0zMs60Lo1dUedfg9xBNRIa: No module named 'textblob'
+[Router] Received analysis request for playlists: ['1enmpvrQQoD59GzDd7BpEQ']
+[Router] Processing playlist: 1enmpvrQQoD59GzDd7BpEQ
+[Router] Fetched 8 tracks for playlist 1enmpvrQQoD59GzDd7BpEQ
+[Router] Found 8 valid track IDs
+[Router] Error fetching audio features for batch 0: http status: 403, code: -1 - https://api.spotify.com/v1/audio-features/?ids=3dhjNA0jGA8vHBQ1VdD6vV,4KJouF0PwyYsq2Jxyj5j6B,4rPJSqrov3zqGwXlemLBMw,1r6qzxz77Tvbrvqd1Q1MIN,0z8wIFS6LUp2iz6kajcID7,1LbBOhicFmu7ktJqIHCELt,5sAqcel4LTCi5G0eBvmp7D,0zMs60Lo1dUedfg9xBNRIa:
+ None, reason: None
+[Router] Total audio features fetched: 0
+[Router] Error analyzing track 3dhjNA0jGA8vHBQ1VdD6vV: No module named 'textblob'
+[Router] Error analyzing track 4KJouF0PwyYsq2Jxyj5j6B: No module named 'textblob'
+[Router] Error analyzing track 4rPJSqrov3zqGwXlemLBMw: No module named 'textblob'
+[Router] Error analyzing track 1r6qzxz77Tvbrvqd1Q1MIN: No module named 'textblob'
+[Router] Error analyzing track 0z8wIFS6LUp2iz6kajcID7: No module named 'textblob'
+[Router] Error analyzing track 1LbBOhicFmu7ktJqIHCELt: No module named 'textblob'
+[Router] Error analyzing track 5sAqcel4LTCi5G0eBvmp7D: No module named 'textblob'
+[Router] Error analyzing track 0zMs60Lo1dUedfg9xBNRIa: No module named 'textblob'
+[Router] Python Executable: /Users/ayaanali/lyriclens/backend/venv/bin/python3.13
+[Router] Python Path: ['/Users/ayaanali/lyriclens/backend', '/Users/ayaanali/lyriclens/backend/venv/bin', '/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python313.zip', '/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13', '/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload', '/Users/ayaanali/lyriclens/backend/venv/lib/python3.13/site-packages']
+[Router] Received analysis request for playlists: ['1enmpvrQQoD59GzDd7BpEQ', '2PIYzo4nWc5P9IEDe0LYrb']
+[Router] Processing playlist: 1enmpvrQQoD59GzDd7BpEQ
+[Router] Fetched 8 tracks for playlist 1enmpvrQQoD59GzDd7BpEQ
+[Router] Found 8 valid track IDs
+[Router] Error fetching audio features for batch 0: http status: 403, code: -1 - https://api.spotify.com/v1/audio-features/?ids=3dhjNA0jGA8vHBQ1VdD6vV,4KJouF0PwyYsq2Jxyj5j6B,4rPJSqrov3zqGwXlemLBMw,1r6qzxz77Tvbrvqd1Q1MIN,0z8wIFS6LUp2iz6kajcID7,1LbBOhicFmu7ktJqIHCELt,5sAqcel4LTCi5G0eBvmp7D,0zMs60Lo1dUedfg9xBNRIa:
+ None, reason: None
+[Router] Total audio features fetched: 0
+[Router] Error analyzing track 3dhjNA0jGA8vHBQ1VdD6vV: No module named 'textblob'
+[Router] Error analyzing track 4KJouF0PwyYsq2Jxyj5j6B: No module named 'textblob'
+[Router] Error analyzing track 4rPJSqrov3zqGwXlemLBMw: No module named 'textblob'
+[Router] Error analyzing track 1r6qzxz77Tvbrvqd1Q1MIN: No module named 'textblob'
+[Router] Error analyzing track 0z8wIFS6LUp2iz6kajcID7: No module named 'textblob'
+[Router] Error analyzing track 1LbBOhicFmu7ktJqIHCELt: No module named 'textblob'
+[Router] Error analyzing track 5sAqcel4LTCi5G0eBvmp7D: No module named 'textblob'
+[Router] Error analyzing track 0zMs60Lo1dUedfg9xBNRIa: No module named 'textblob'
+[Router] Processing playlist: 2PIYzo4nWc5P9IEDe0LYrb
+[Router] Fetched 4 tracks for playlist 2PIYzo4nWc5P9IEDe0LYrb
+[Router] Found 4 valid track IDs
+[Router] Error fetching audio features for batch 0: http status: 403, code: -1 - https://api.spotify.com/v1/audio-features/?ids=1cwqP7Tyxu5z8XDYoPkNte,1D2L6MefbXon28PzIk9I3r,22I3h5AOENlH4CqXJsEbFR,3azJifCSqg9fRij2yKIbWz:
+ None, reason: None
+[Router] Total audio features fetched: 0
+[Router] Error analyzing track 1cwqP7Tyxu5z8XDYoPkNte: No module named 'textblob'
+[Router] Error analyzing track 1D2L6MefbXon28PzIk9I3r: No module named 'textblob'
+[Router] Error analyzing track 22I3h5AOENlH4CqXJsEbFR: No module named 'textblob'
+[Router] Error analyzing track 3azJifCSqg9fRij2yKIbWz: No module named 'textblob'
